@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\dacab\\source\\repos\\Projecte - Dames (David, Sofia)\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F675D181-E09F-4402-A371-AE4D6909C8D1}|Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia).vcxproj|C:\\Users\\dacab\\source\\repos\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\dames.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F675D181-E09F-4402-A371-AE4D6909C8D1}|Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia).vcxproj|solutionrelative:Projecte - Dames (David, Sofia)\\dames.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "dames.cpp",
+              "DocumentMoniker": "C:\\Users\\dacab\\source\\repos\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\dames.cpp",
+              "RelativeDocumentMoniker": "Projecte - Dames (David, Sofia)\\dames.cpp",
+              "ToolTip": "C:\\Users\\dacab\\source\\repos\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\dames.cpp",
+              "RelativeToolTip": "Projecte - Dames (David, Sofia)\\dames.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-14T08:20:08.833Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
