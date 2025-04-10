@@ -2,9 +2,9 @@
 
 Fitxa::Fitxa()
 {
-	m_colorFitxa;
-	m_tipusFitxa;
-	m_nJugador;
+	m_colorFitxa = COLOR_BLANC;
+	m_tipusFitxa = TIPUS_EMPTY;
+	m_nJugador = 0;
 }
 
 Fitxa::Fitxa(ColorFitxa color, TipusFitxa tipus, int njugador)

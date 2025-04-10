@@ -35,7 +35,6 @@ public:
 	bool finalTauler() const;
 	bool convertirDama(); // Separo convertir dama i final tauler perquè pot arribar al final i no convertir-se en dama en el cas de que ja ho sigui
 	string movimentsValids() const;
-
 private:
 	ColorFitxa m_colorFitxa;
 	TipusFitxa m_tipusFitxa;

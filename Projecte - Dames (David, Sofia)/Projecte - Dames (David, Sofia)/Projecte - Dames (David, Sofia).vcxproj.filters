@@ -21,6 +21,9 @@
     <ClCompile Include="fitxa.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="moviment.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fitxa.h">
