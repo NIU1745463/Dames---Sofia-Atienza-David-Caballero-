@@ -27,6 +27,9 @@
     <ClCompile Include="posicio.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tauler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fitxa.h">

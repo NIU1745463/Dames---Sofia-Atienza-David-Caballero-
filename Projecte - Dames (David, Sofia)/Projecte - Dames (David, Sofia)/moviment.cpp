@@ -51,3 +51,4 @@ bool Moviment::movimentValid() const
 {
     // FER SENCER 
 }
+

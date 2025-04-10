@@ -2,7 +2,7 @@
 #define POSICIO_H
 
 #include <iostream>
-#include "moviment.h"
+
 using namespace std;
 
 const int N_FILES = 8;
