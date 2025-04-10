@@ -129,6 +129,12 @@
   <ItemGroup>
     <ClCompile Include="dames.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="fitxa.h" />
+    <ClInclude Include="moviment.h" />
+    <ClInclude Include="posicio.h" />
+    <ClInclude Include="tauler.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

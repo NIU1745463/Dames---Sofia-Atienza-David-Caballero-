@@ -19,4 +19,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="fitxa.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="moviment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="posicio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tauler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
