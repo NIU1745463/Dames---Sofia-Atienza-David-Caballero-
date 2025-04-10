@@ -180,7 +180,6 @@ void Tauler::getPosicionsPossibles(const Posicio& origen, int& nPosicions, Posic
         }
     }
 
-    // Buscar capturas
     buscarCaptures(origen, nPosicions, posicionsPossibles);
 }
 
