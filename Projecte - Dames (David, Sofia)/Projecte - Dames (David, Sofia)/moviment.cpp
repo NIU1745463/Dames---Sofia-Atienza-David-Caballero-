@@ -6,41 +6,29 @@ Moviment::Moviment()
 	m_nCaselles = 0;
 }
 
-Moviment::Moviment(Fitxa fitxa, int filaInici, int columnaInici)
-{
-    m_fitxa = fitxa;
-    m_filaInici = filaInici;
-    m_columnaInici = columnaInici;
-    m_fitxesMatades = 0;
-    m_nCaselles = 0;
-}
-
 void Moviment::getPosicioInicial(int& fila, int& columna) const 
 {
-    fila = m_filaInici;
-    columna = m_columnaInici;
+    fila = m_inici.getFila();
+    columna = m_inici.getColumna();
 }
 
 void Moviment::getPosicioFinal(int& fila, int& columna) const 
 {
-    fila = m_filaFinal;
-    columna = m_columnaFinal;
+    fila = m_final.getFila();
+    columna = m_final.getColumna();;
 }
 
-void Moviment::addSalt(int fila, int columna) // Cada salt que fem s'agegira aqui i incrementara el nom de caselles recorregudes
-{
-    if (m_nCaselles < MAX_SALTS) 
-    {
-        m_saltsFila[m_nCaselles] = fila;
-        m_saltsColumna[m_nCaselles] = columna;
-        m_nCaselles++; 
+void Moviment::addSalt(int fila, int columna) {
+    if (m_nCaselles < MAX_SALTS) {
+        m_salts[m_nCaselles] = Posicio(fila, columna);
+        m_nCaselles++;
     }
 }
 
 void Moviment::getSalt(int index, int& fila, int& columna) const {
     if (index >= 0 && index < m_nCaselles) {
-        fila = m_saltsFila[index];
-        columna = m_saltsColumna[index];
+        fila = m_salts[index].getFila();
+        columna = m_salts[index].getColumna();
     }
     else {
         fila = -1;
@@ -55,8 +43,8 @@ void Moviment::addFitxaMatada()
 
 void Moviment::setPosicioFinal(int fila, int columna) 
 {
-    m_filaFinal = fila;
-    m_columnaFinal = columna;
+    m_final.setFila(fila);
+    m_final.setColumna(columna);
 }
 
 bool Moviment::movimentValid() const 

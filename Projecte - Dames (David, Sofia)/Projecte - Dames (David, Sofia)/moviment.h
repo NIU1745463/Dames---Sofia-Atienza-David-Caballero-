@@ -2,6 +2,7 @@
 #define MOVIMENT_H
 
 #include "fitxa.h"
+#include "posicio.h"
 
 const int MAX_SALTS = 8;  //Afegeixo aquesta condicio, ja que es impossible que faci mes salts que aixo
 const int MAX_BLANQUES = 12;
@@ -11,7 +12,6 @@ class Moviment
 {
 public:
     Moviment();
-    Moviment(Fitxa fitxa, int filaInici, int columnaInici);
     int getFitxesMatades() const { return m_fitxesMatades; }
     int getNCaselles() const { return m_nCaselles; }
     Fitxa getFitxa() const { return m_fitxa; }
@@ -27,16 +27,13 @@ public:
 private:
     Fitxa m_fitxa; 
     // INICI
-    int m_filaInici;
-    int m_columnaInici;
+    Posicio m_inici;
     // FINAL
-    int m_filaFinal;
-    int m_columnaFinal; 
+    Posicio m_final;
+    Posicio m_salts[MAX_SALTS];;
     // ALTRES
-    int m_saltsFila[MAX_SALTS]; 
-    int m_saltsColumna[MAX_SALTS]; 
-    int m_fitxesMatades; 
-    int m_nCaselles; 
+    int m_nCaselles;
+    int m_fitxesMatades;
 };
 
 #endif

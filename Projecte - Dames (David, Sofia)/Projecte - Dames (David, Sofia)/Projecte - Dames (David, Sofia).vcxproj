@@ -130,6 +130,7 @@
     <ClCompile Include="dames.cpp" />
     <ClCompile Include="fitxa.cpp" />
     <ClCompile Include="moviment.cpp" />
+    <ClCompile Include="posicio.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fitxa.h" />

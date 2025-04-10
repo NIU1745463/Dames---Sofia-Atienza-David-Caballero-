@@ -4,6 +4,7 @@
 #include <iostream>
 #include "posicio.h"
 #include "fitxa.h"
+#include "moviment.h"
 
 using namespace std;
 
