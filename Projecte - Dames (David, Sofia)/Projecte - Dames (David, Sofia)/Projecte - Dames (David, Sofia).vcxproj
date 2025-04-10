@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dames.cpp" />
+    <ClCompile Include="fitxa.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fitxa.h" />

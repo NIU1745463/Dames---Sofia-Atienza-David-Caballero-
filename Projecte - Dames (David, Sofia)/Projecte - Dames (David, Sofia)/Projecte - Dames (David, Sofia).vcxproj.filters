@@ -18,6 +18,9 @@
     <ClCompile Include="dames.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="fitxa.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fitxa.h">
