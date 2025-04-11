@@ -52,7 +52,8 @@ bool Moviment::movimentValid() const
     Posicio possPossibles[MAX_MOVIMENTS]; 
     int nPosicions = 0;
 
-    m_tauler.getPosicionsPossibles(m_inici, nPosicions, possPossibles);
+    Tauler m_tauler;
+	m_tauler.getPosicionsPossibles(m_inici, nPosicions, possPossibles);
 
     for (int i = 0; i < nPosicions; ++i)
     {
