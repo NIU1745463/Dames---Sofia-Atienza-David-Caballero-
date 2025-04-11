@@ -47,8 +47,21 @@ void Moviment::setPosicioFinal(int fila, int columna)
     m_final.setColumna(columna);
 }
 
-bool Moviment::movimentValid() const 
+bool Moviment::movimentValid() const
 {
-    // FER SENCER 
+    Posicio possPossibles[MAX_MOVIMENTS]; 
+    int nPosicions = 0;
+
+    m_tauler.getPosicionsPossibles(m_inici, nPosicions, possPossibles);
+
+    for (int i = 0; i < nPosicions; ++i)
+    {
+        if (possPossibles[i] == m_final)
+        {
+            return true;
+        }
+    }
+    return false;
 }
+
 
