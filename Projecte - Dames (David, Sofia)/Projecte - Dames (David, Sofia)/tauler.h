@@ -24,8 +24,8 @@ public:
     bool movimentValid(const Posicio& origen, const Posicio& desti) const;
     bool maximaCaptura(const Posicio& origen) const;
     void aplicarMoviment(const Moviment& moviment);
-    void convertirADama(const Posicio& pos);
-    void bufarFitxa(); 
+    void convertirADama(const Posicio& pos);// NO CREEC QUE FACI FALTA, JA QUE EL PODEM IMPLEMENTAR DIRECTAMENT
+    void bufarFitxa();  //
 private:
     Fitxa m_tauler[N_FILES][N_COLUMNES];
     void netejaTauler();

@@ -6,7 +6,7 @@ Moviment::Moviment()
 	m_nCaselles = 0;
 }
 
-void Moviment::getPosicioInicial(int& fila, int& columna) const 
+void Moviment::getPosicioInicial(int& fila, int& columna) const // No sé si tendrian que ser strings aquí o están bien como fila columna
 {
     fila = m_inici.getFila();
     columna = m_inici.getColumna();
@@ -36,7 +36,7 @@ void Moviment::getSalt(int index, int& fila, int& columna) const {
     }
 }
 
-void Moviment::addFitxaMatada() 
+void Moviment::addFitxaMatada() // juntar
 {
     m_fitxesMatades++;
 }
@@ -51,6 +51,8 @@ bool Moviment::movimentValid() const
 {
     Posicio possPossibles[MAX_MOVIMENTS]; 
     int nPosicions = 0;
+
+    Tauler m_tauler;
 
     m_tauler.getPosicionsPossibles(m_inici, nPosicions, possPossibles);
 

@@ -22,6 +22,8 @@ public:
 	void fromString(const string& pos);
 	Posicio(const string& posicio);
 	bool operator==(const Posicio& posicio) const;
+	// FALTA FER POSICIONS POSSIBLES
+	// SOBRECARREGA FETA A CLASSE
 private:
 	int m_fila;
 	int m_columna;

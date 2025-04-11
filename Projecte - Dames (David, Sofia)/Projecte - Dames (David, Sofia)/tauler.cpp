@@ -16,7 +16,7 @@ Tauler::Tauler()
     netejaTauler();
 }
 
-void llegeixTauler(const string& nomFitxer, char tauler[N_FILES][N_COLUMNES])
+void Tauler::llegeixTauler(const string& nomFitxer, char tauler[N_FILES][N_COLUMNES]) // CAMBIAR
 {
     ifstream fitxer;
     fitxer.open(nomFitxer);
@@ -52,7 +52,7 @@ void llegeixTauler(const string& nomFitxer, char tauler[N_FILES][N_COLUMNES])
 
 }
 
-void escriuTauler(const string& nomFitxer, char tauler[N_FILES][N_COLUMNES])
+void Tauler::escriuTauler(const string& nomFitxer, char tauler[N_FILES][N_COLUMNES])
 {
     ofstream fitxer;
     fitxer.open(nomFitxer);
@@ -258,6 +258,7 @@ bool Tauler::mouFitxa(const Posicio& origen, const Posicio& desti)
     // Situem la fitxa al desti final i comprobem si ha de ser dama
     m_tauler[desti.getFila()][desti.getColumna()] = fitxaTmp;
 
+    // Potser seria millor fer aixo en una funcio
     if (fitxaTmp.getTipus() == TIPUS_NORMAL)
     {
         bool esBlancaEnPrimeraFila = (fitxaTmp.getColor() == COLOR_BLANC && desti.getFila() == 0); 

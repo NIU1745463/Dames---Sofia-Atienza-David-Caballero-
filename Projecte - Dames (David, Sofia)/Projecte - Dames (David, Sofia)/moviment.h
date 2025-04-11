@@ -3,6 +3,7 @@
 
 #include "fitxa.h"
 #include "posicio.h"
+#include "tauler.h"
 
 const int MAX_SALTS = 8;  //Afegeixo aquesta condicio, ja que es impossible que faci mes salts que aixo
 const int MAX_BLANQUES = 12;
@@ -19,7 +20,7 @@ public:
     void getPosicioFinal(int& fila, int& columna) const;
     void getSalt(int index, int& fila, int& columna) const;
     void addSalt(int fila, int columna);
-    void addFitxaMatada();
+    void addFitxaMatada(); // es poden juntar
     void setPosicioFinal(int fila, int columna);
     bool movimentValid() const;
     bool capturaFeta() const { return m_fitxesMatades > 0; }

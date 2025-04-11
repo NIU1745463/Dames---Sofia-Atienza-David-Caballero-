@@ -32,14 +32,15 @@ public:
 	string getMoviments(const int index) const { return moviments[index]; };
 	void setColor(ColorFitxa color) { m_colorFitxa = color; };
 	void setTipus(TipusFitxa tipus) { m_tipusFitxa = tipus; };
-	bool finalTauler() const;
+	bool finalTauler() const; // No cal, ja que això ho he fet a tauler
 	bool convertirDama(); // Separo convertir dama i final tauler perquè pot arribar al final i no convertir-se en dama en el cas de que ja ho sigui
+	// Aquestes ultimes funcions podrien ser eliminades
 	string movimentsValids() const;
 private:
 	ColorFitxa m_colorFitxa;
 	TipusFitxa m_tipusFitxa;
 	int m_nJugador;
-	string moviments[1000];
+	string moviments[1000]; // fer un array de moviments
 };
 
 #endif
