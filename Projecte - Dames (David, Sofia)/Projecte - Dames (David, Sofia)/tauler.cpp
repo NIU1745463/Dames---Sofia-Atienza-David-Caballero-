@@ -1,4 +1,4 @@
-#include "tauler.h"
+#include "tauler.hpp"
 
 void Tauler::netejaTauler()
 {
@@ -76,14 +76,37 @@ void Tauler::escriuTauler(const string& nomFitxer, char tauler[N_FILES][N_COLUMN
 
 }
 
-void Tauler::inicialitza(const string& nomFitxer) 
+void Tauler::inicialitza(const string& nomFitxer)
 {
     netejaTauler();
-    llegeixTauler(nomFitxer);
+    char taulerTemp[N_FILES][N_COLUMNES];
+    llegeixTauler(nomFitxer, taulerTemp);
+
+    for (int i = 0; i < N_FILES; i++) 
+    {
+        for (int j = 0; j < N_COLUMNES; j++) 
+        {
+            switch (taulerTemp[i][j]) {
+            case 'B': m_tauler[i][j] = Fitxa(COLOR_BLANC, TIPUS_NORMAL, 1); break;
+            case 'N': m_tauler[i][j] = Fitxa(COLOR_NEGRE, TIPUS_NORMAL, 2); break;
+            case 'D': m_tauler[i][j] = Fitxa(COLOR_BLANC, TIPUS_DAMA, 1); break;
+            case 'Q': m_tauler[i][j] = Fitxa(COLOR_NEGRE, TIPUS_DAMA, 2); break;
+            default: m_tauler[i][j] = Fitxa(); break;
+            }
+        }
+    }
     actualitzaMovimentsValids();
 }
 
-// implementar
+void Tauler::actualitzaMovimentsValids()
+{
+    for (int i = 0; i < N_FILES; i++) {
+        for (int j = 0; j < N_COLUMNES; j++) {
+            if (m_tauler[i][j].getTipus() != TIPUS_EMPTY) {
+            }
+        }
+    }
+}
 
 bool Tauler::dinsTauler(const Posicio& pos) const
 {
@@ -273,3 +296,45 @@ bool Tauler::mouFitxa(const Posicio& origen, const Posicio& desti)
     return true;
 }
 
+void Tauler::bufarFitxa(ColorFitxa color)
+{
+    for (int i = 0; i < N_FILES; ++i)
+    {
+        for (int j = 0; j < N_COLUMNES; ++j)
+        {
+ 
+            if (m_tauler[i][j].getColor() == color && m_tauler[i][j].getTipus() != TIPUS_EMPTY)
+            {
+                Moviment mov;
+                int nPosicions = 0;
+                Posicio posicionsCaptura[MAX_MOVIMENTS];
+
+                buscarCaptures(Posicio(i, j), nPosicions, posicionsCaptura);
+
+                if (nPosicions == 0)
+                {
+                    m_tauler[i][j] = Fitxa(); 
+                    return; 
+                }
+            }
+        }
+    }
+}
+
+string Tauler::toString() const 
+{
+    ostringstream out;
+    for (int i = 0; i < N_FILES; ++i) {
+        for (int j = 0; j < N_COLUMNES; ++j) {
+            const Fitxa& f = m_tauler[i][j];
+            char c = '_';
+            if (f.getTipus() == TIPUS_NORMAL)
+                c = (f.getColor() == COLOR_BLANC) ? 'O' : 'X';
+            else if (f.getTipus() == TIPUS_DAMA)
+                c = (f.getColor() == COLOR_BLANC) ? 'D' : 'R';
+            out << c << " ";
+        }
+        out << "\n";
+    }
+    return out.str();
+}

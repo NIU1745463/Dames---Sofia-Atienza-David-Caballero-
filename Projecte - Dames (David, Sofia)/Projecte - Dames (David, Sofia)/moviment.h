@@ -2,12 +2,8 @@
 #define MOVIMENT_H
 
 #include "fitxa.h"
-#include "posicio.h"
-#include "tauler.h"
-
-const int MAX_SALTS = 8;  //Afegeixo aquesta condicio, ja que es impossible que faci mes salts que aixo
-const int MAX_BLANQUES = 12;
-const int MAX_NEGRES = 12;
+#include "posicio.hpp"
+#include "tauler.hpp"
 
 class Moviment 
 {

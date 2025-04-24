@@ -1,42 +1,93 @@
-﻿  dames.cpp
-  fitxa.cpp
-  moviment.cpp
-  posicio.cpp
-C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\moviment.h(8,11): error C2374: 'MAX_BLANQUES': redefinition; multiple initialization
+﻿  moviment.cpp
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.hpp(13,11): error C2374: 'N_FILES': redefinition; multiple initialization
   (compiling source file 'moviment.cpp')
-      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\fitxa.h(8,11):
-      see declaration of 'MAX_BLANQUES'
-  
-C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\moviment.h(9,11): error C2374: 'MAX_NEGRES': redefinition; multiple initialization
-  (compiling source file 'moviment.cpp')
-      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\fitxa.h(9,11):
-      see declaration of 'MAX_NEGRES'
-  
-  tauler.cpp
-C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\moviment.h(8,11): error C2374: 'MAX_BLANQUES': redefinition; multiple initialization
-  (compiling source file 'tauler.cpp')
-      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\fitxa.h(8,11):
-      see declaration of 'MAX_BLANQUES'
-  
-C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\moviment.h(9,11): error C2374: 'MAX_NEGRES': redefinition; multiple initialization
-  (compiling source file 'tauler.cpp')
-      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\fitxa.h(9,11):
-      see declaration of 'MAX_NEGRES'
-  
-C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.h(13,11): error C2374: 'N_FILES': redefinition; multiple initialization
-  (compiling source file 'tauler.cpp')
-      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\posicio.h(8,11):
+      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\posicio.hpp(10,11):
       see declaration of 'N_FILES'
   
-C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.h(14,11): error C2374: 'N_COLUMNES': redefinition; multiple initialization
-  (compiling source file 'tauler.cpp')
-      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\posicio.h(9,11):
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.hpp(14,11): error C2374: 'N_COLUMNES': redefinition; multiple initialization
+  (compiling source file 'moviment.cpp')
+      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\posicio.hpp(11,11):
       see declaration of 'N_COLUMNES'
   
-C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.cpp(82,5): error C2660: 'Tauler::llegeixTauler': function does not take 1 arguments
-      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.h(32,10):
-      see declaration of 'Tauler::llegeixTauler'
-      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.cpp(82,5):
-      while trying to match the argument list '(const std::string)'
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.hpp(24,26): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  (compiling source file 'moviment.cpp')
   
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.hpp(24,40): error C2143: syntax error: missing ',' before '&'
+  (compiling source file 'moviment.cpp')
+  
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.hpp(31,58): error C2061: syntax error: identifier 'Moviment'
+  (compiling source file 'moviment.cpp')
+  
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.hpp(32,51): error C2061: syntax error: identifier 'Moviment'
+  (compiling source file 'moviment.cpp')
+  
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\moviment.h(30,21): error C2065: 'MAX_SALTS': undeclared identifier
+  (compiling source file 'moviment.cpp')
+  
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\moviment.cpp(22,23): error C2065: 'MAX_SALTS': undeclared identifier
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\moviment.cpp(23,30): error C3863: array type 'Posicio [0]' is not assignable
+  posicio.cpp
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\posicio.cpp(42,2): error C2666: 'operator <<': overloaded functions have similar conversions
+      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\posicio.cpp(39,11):
+      could be 'std::ofstream &operator <<(std::ofstream &,const Posicio &)'
+      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\posicio.hpp(34,10):
+      or       'std::ostream &operator <<(std::ostream &,const Posicio &)'
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xstring(3420,32):
+      or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>,std::allocator<char>>(std::basic_ostream<char,std::char_traits<char>> &,const std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)'
+      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\posicio.cpp(42,2):
+      while trying to match the argument list '(std::ofstream, std::string)'
+  
+  tauler.cpp
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\moviment.h(30,21): error C2065: 'MAX_SALTS': undeclared identifier
+  (compiling source file 'tauler.cpp')
+  
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.hpp(13,11): error C2374: 'N_FILES': redefinition; multiple initialization
+  (compiling source file 'tauler.cpp')
+      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\posicio.hpp(10,11):
+      see declaration of 'N_FILES'
+  
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.hpp(14,11): error C2374: 'N_COLUMNES': redefinition; multiple initialization
+  (compiling source file 'tauler.cpp')
+      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\posicio.hpp(11,11):
+      see declaration of 'N_COLUMNES'
+  
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.cpp(326,24): error C2079: 'out' uses undefined class 'std::basic_ostringstream<char,std::char_traits<char>,std::allocator<char>>'
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.cpp(335,22): error C2297: '<<': not valid as right operand has type 'const char [2]'
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.cpp(335,22): warning C4552: '<<': result of expression not used
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.cpp(337,13): error C2297: '<<': not valid as right operand has type 'const char [2]'
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.cpp(337,13): warning C4552: '<<': result of expression not used
+  test.cpp
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\moviment.h(30,21): error C2065: 'MAX_SALTS': undeclared identifier
+  (compiling source file 'test.cpp')
+  
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.hpp(13,11): error C2374: 'N_FILES': redefinition; multiple initialization
+  (compiling source file 'test.cpp')
+      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\posicio.hpp(10,11):
+      see declaration of 'N_FILES'
+  
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.hpp(14,11): error C2374: 'N_COLUMNES': redefinition; multiple initialization
+  (compiling source file 'test.cpp')
+      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\posicio.hpp(11,11):
+      see declaration of 'N_COLUMNES'
+  
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\test.cpp(95,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\test.cpp(176,36): error C2248: 'Tauler::toString': cannot access private member declared in class 'Tauler'
+      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.hpp(37,12):
+      see declaration of 'Tauler::toString'
+      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.hpp(16,7):
+      see declaration of 'Tauler'
+  
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\test.cpp(311,40): error C2248: 'Tauler::toString': cannot access private member declared in class 'Tauler'
+      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.hpp(37,12):
+      see declaration of 'Tauler::toString'
+      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.hpp(16,7):
+      see declaration of 'Tauler'
+  
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\test.cpp(435,45): error C2248: 'Tauler::toString': cannot access private member declared in class 'Tauler'
+      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.hpp(37,12):
+      see declaration of 'Tauler::toString'
+      C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\tauler.hpp(16,7):
+      see declaration of 'Tauler'
+  
+C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\test.cpp(444,22): warning C4305: '+=': truncation from 'double' to 'float'
   Generating Code...

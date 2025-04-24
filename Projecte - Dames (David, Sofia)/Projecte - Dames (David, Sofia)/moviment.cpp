@@ -53,12 +53,6 @@ bool Moviment::movimentValid() const
     int nPosicions = 0;
 
     Tauler m_tauler;
-<<<<<<< HEAD
-
-    m_tauler.getPosicionsPossibles(m_inici, nPosicions, possPossibles);
-=======
-	m_tauler.getPosicionsPossibles(m_inici, nPosicions, possPossibles);
->>>>>>> fee252aadaddca584b16db40ab2b737bb25cf3b1
 
     for (int i = 0; i < nPosicions; ++i)
     {

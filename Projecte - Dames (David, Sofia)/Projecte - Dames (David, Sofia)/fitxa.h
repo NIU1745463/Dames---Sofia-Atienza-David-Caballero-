@@ -5,9 +5,6 @@
 
 using namespace std;
 
-int const MAX_BLANQUES = 12;
-int const MAX_NEGRES = 12;
-
 typedef enum
 {
 	TIPUS_NORMAL,
@@ -32,9 +29,6 @@ public:
 	string getMoviments(const int index) const { return moviments[index]; };
 	void setColor(ColorFitxa color) { m_colorFitxa = color; };
 	void setTipus(TipusFitxa tipus) { m_tipusFitxa = tipus; };
-	bool finalTauler() const; // No cal, ja que això ho he fet a tauler
-	bool convertirDama(); // Separo convertir dama i final tauler perquè pot arribar al final i no convertir-se en dama en el cas de que ja ho sigui
-	// Aquestes ultimes funcions podrien ser eliminades
 	string movimentsValids() const;
 private:
 	ColorFitxa m_colorFitxa;
