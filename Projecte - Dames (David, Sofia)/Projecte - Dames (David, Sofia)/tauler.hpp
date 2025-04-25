@@ -10,8 +10,7 @@
 using namespace std;
 
 const int MAX_MOVIMENTS = 1000;
-const int N_FILES = 8;
-const int N_COLUMNES = 8;
+
 
 class Tauler {
 public:
@@ -20,21 +19,22 @@ public:
     void actualitzaMovimentsValids();
     void getPosicionsPossibles(const Posicio& origen, int& nPosicions, Posicio posicionsPossibles[]) const;
     bool mouFitxa(const Posicio& origen, const Posicio& desti);
-    bool maximaCaptura(const Posicio& origen) const;
-    void aplicarMoviment(const Moviment& moviment);
+    //CREAR PARA BUFAR O IMPLEMENTAR EN BUFAR bool maximaCaptura(const Posicio& origen) const;
+    //hacefalta?void aplicarMoviment(const Moviment& moviment);
+
     void bufarFitxa(ColorFitxa color);
+    string toString() const;
 private:
     Fitxa m_tauler[N_FILES][N_COLUMNES];
     void netejaTauler();
     void llegeixTauler(const string& nomFitxer, char tauler[N_FILES][N_COLUMNES]);
     void escriuTauler(const string& nomFitxer, char tauler[N_FILES][N_COLUMNES]);
-    void generarMovimentsFitxaNormal(const Posicio& pos, Moviment& mov) const;
-    void generarMovimentsDama(const Posicio& pos, Moviment& mov) const;
+    //crear esta en la funcion del tauler void generarMovimentsFitxaNormal(const Posicio& pos, Moviment& mov) const;
+    // lo mismo aquí void generarMovimentsDama(const Posicio& pos, Moviment& mov) const;
     bool dinsTauler(const Posicio& pos) const;
     bool casellaBuida(const Posicio& pos) const;
     bool fitxaContraria(const Posicio& pos, ColorFitxa color) const;
     void buscarCaptures(const Posicio& origen, int& nPosicions, Posicio posicionsPossibles[]) const;
-    string toString() const;
 
 };
 #endif

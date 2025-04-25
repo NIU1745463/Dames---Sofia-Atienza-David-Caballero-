@@ -321,20 +321,19 @@ void Tauler::bufarFitxa(ColorFitxa color)
     }
 }
 
-string Tauler::toString() const 
-{
-    ostringstream out;
+string Tauler::toString() const {
+    string out;
     for (int i = 0; i < N_FILES; ++i) {
         for (int j = 0; j < N_COLUMNES; ++j) {
             const Fitxa& f = m_tauler[i][j];
-            char c = '_';
+            string c = "_";  
             if (f.getTipus() == TIPUS_NORMAL)
-                c = (f.getColor() == COLOR_BLANC) ? 'O' : 'X';
+                c = (f.getColor() == COLOR_BLANC) ? "O" : "X";
             else if (f.getTipus() == TIPUS_DAMA)
-                c = (f.getColor() == COLOR_BLANC) ? 'D' : 'R';
-            out << c << " ";
+                c = (f.getColor() == COLOR_BLANC) ? "D" : "R";
+            out += c + " "; 
         }
-        out << "\n";
+        out += "\n";
     }
-    return out.str();
+    return out;
 }

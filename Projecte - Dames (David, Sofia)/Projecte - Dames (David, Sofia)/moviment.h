@@ -5,6 +5,8 @@
 #include "posicio.hpp"
 #include "tauler.hpp"
 
+const int MAX_SALTS = 8;
+
 class Moviment 
 {
 public:
@@ -27,7 +29,7 @@ private:
     Posicio m_inici;
     // FINAL
     Posicio m_final;
-    Posicio m_salts[MAX_SALTS];;
+    Posicio m_salts[MAX_SALTS];
     // ALTRES
     int m_nCaselles;
     int m_fitxesMatades;

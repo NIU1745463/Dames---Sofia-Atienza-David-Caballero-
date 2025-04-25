@@ -29,12 +29,12 @@ public:
 	string getMoviments(const int index) const { return moviments[index]; };
 	void setColor(ColorFitxa color) { m_colorFitxa = color; };
 	void setTipus(TipusFitxa tipus) { m_tipusFitxa = tipus; };
-	string movimentsValids() const;
+	// HACE FALTA? RELMENTE LO COMPRUEBO EN MOVIMENTS YA string movimentsValids() const;
 private:
 	ColorFitxa m_colorFitxa;
 	TipusFitxa m_tipusFitxa;
 	int m_nJugador;
-	string moviments[1000]; // fer un array de moviments
+	string moviments[100]; // fer un array de moviments
 };
 
 #endif

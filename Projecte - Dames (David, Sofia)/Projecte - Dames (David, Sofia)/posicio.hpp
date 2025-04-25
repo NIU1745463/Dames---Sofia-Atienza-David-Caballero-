@@ -22,7 +22,7 @@ public:
 	bool PosicioValida() const { return m_fila >= 0 && m_columna >= 0; }
 	string toString() const;
 	void fromString(const string& pos);
-	Posicio(const string& posicio);
+	Posicio(const string& posicio); 
 	bool operator==(const Posicio& posicio) const;
 	// FALTA FER POSICIONS POSSIBLES
 private:
@@ -31,6 +31,6 @@ private:
 };
 
 ifstream& operator>>(ifstream& fitxer, Posicio& posicio);
-ostream& operator<<(ostream& out, const Posicio& pos);
+ostream& operator<<(ostream& os, const Posicio& pos);
 
 #endif
