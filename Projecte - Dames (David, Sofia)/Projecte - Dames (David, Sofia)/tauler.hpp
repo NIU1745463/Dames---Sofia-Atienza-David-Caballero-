@@ -35,6 +35,8 @@ private:
     bool casellaBuida(const Posicio& pos) const;
     bool fitxaContraria(const Posicio& pos, ColorFitxa color) const;
     void buscarCaptures(const Posicio& origen, int& nPosicions, Posicio posicionsPossibles[]) const;
+    string m_movimentsValids[100]; //supongo que lo tendremos que hacer dinamico
+    int m_numMoviments;
 
 };
 #endif
