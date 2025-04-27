@@ -202,27 +202,52 @@ bool Tauler::fitxaContraria(const Posicio& pos, ColorFitxa color) const
         m_tauler[pos.getFila()][pos.getColumna()].getColor() != color;
 } // Si no esta ni vuit y es del color contrari al meu, evidentment hi ha una fitxa contraria
 
-void Tauler::buscarCaptures(const Posicio& origen, int& nPosicions, Posicio posicionsPossibles[]) const 
-{
+
+void Tauler::buscarCaptures(const Posicio& origen, int& nPosicions, Posicio posicionsPossibles[]) const {
     const Fitxa& fitxa = m_tauler[origen.getFila()][origen.getColumna()];
     const int MAX_DIR = 4;
-    struct Salto { int df; int dc; } salts[MAX_DIR] = 
-    {
-        {-2,-2}, // Diferents salts possibles
-        {-2, 2},  
-        { 2,-2}, 
-        { 2, 2}  
-    };
+    struct Direccio { int df; int dc; };
+    Direccio direccions[MAX_DIR] = { {-1,-1}, {-1,1}, {1,-1}, {1,1} };
 
-    for (int i = 0; i < MAX_DIR; ++i) 
-    {
-        Posicio dest(origen.getFila() + salts[i].df, origen.getColumna() + salts[i].dc);
-        Posicio mig(origen.getFila() + salts[i].df / 2, origen.getColumna() + salts[i].dc / 2);
+    int inicioDir, numDir;
+    if (fitxa.getTipus() == TIPUS_DAMA) {
+        inicioDir = 0;
+        numDir = 4; // Damas pueden capturar en las 4 direcciones
+    }
+    else {
+        // Fichas normales solo avanzan
+        inicioDir = (fitxa.getColor() == COLOR_BLANC) ? 0 : 2;
+        numDir = 2;
+    }
 
-        if (dinsTauler(dest) && casellaBuida(dest) && fitxaContraria(mig, fitxa.getColor())) 
-        {
+    for (int i = inicioDir; i < inicioDir + numDir; ++i) {
+        Posicio mig(origen.getFila() + direccions[i].df,
+            origen.getColumna() + direccions[i].dc);
+        Posicio dest(origen.getFila() + 2 * direccions[i].df,
+            origen.getColumna() + 2 * direccions[i].dc);
+
+        if (dinsTauler(dest) && casellaBuida(dest) &&
+            fitxaContraria(mig, fitxa.getColor())) {
             posicionsPossibles[nPosicions++] = dest;
-            if (nPosicions >= MAX_MOVIMENTS) return;
+        }
+
+        // Para damas, verificar saltos múltiples
+        if (fitxa.getTipus() == TIPUS_DAMA && dinsTauler(mig) &&
+            fitxaContraria(mig, fitxa.getColor())) {
+            // Buscar posición vacía después de la ficha contraria
+            Posicio actual = mig;
+            while (dinsTauler(actual)) {
+                actual = Posicio(actual.getFila() + direccions[i].df,
+                    actual.getColumna() + direccions[i].dc);
+                if (!dinsTauler(actual)) break;
+
+                if (casellaBuida(actual)) {
+                    posicionsPossibles[nPosicions++] = actual;
+                }
+                else {
+                    break; // Hay otra ficha en el camino
+                }
+            }
         }
     }
 }
@@ -234,40 +259,44 @@ void Tauler::getPosicionsPossibles(const Posicio& origen, int& nPosicions, Posic
     const Fitxa& fitxa = m_tauler[origen.getFila()][origen.getColumna()];
     if (fitxa.getTipus() == TIPUS_EMPTY) return;
 
-    // Direcciones posibles según tipo de ficha
+    // Direcciones posibles (4 diagonales)
     const int MAX_DIR = 4;
     struct Direccio { int df; int dc; };
-    Direccio direccions[MAX_DIR] = {
-        {-1,-1}, {-1,1}, {1,-1}, {1,1} // 4 direcciones diagonales
-    };
+    Direccio direccions[MAX_DIR] = { {-1,-1}, {-1,1}, {1,-1}, {1,1} };
 
-    int inicioDir, numDir;
-    if (fitxa.getTipus() == TIPUS_DAMA) {
-        inicioDir = 0;
-        numDir = 4; // Damas pueden moverse en las 4 direcciones
-    }
-    else {
-        // Fichas normales solo avanzan
-        if (fitxa.getColor() == COLOR_BLANC) {
-            inicioDir = 0; // Blancas avanzan hacia arriba (direcciones 0 y 1)
-            numDir = 2;
-        }
-        else {
-            inicioDir = 2; // Negras avanzan hacia abajo (direcciones 2 y 3)
-            numDir = 2;
-        }
-    }
-
-    // Primero buscar capturas obligatorias
+    // Primero verificar capturas obligatorias
     buscarCaptures(origen, nPosicions, posicionsPossibles);
 
-    // Si no hay capturas, buscar movimientos simples
+    // Si no hay capturas, buscar movimientos normales
     if (nPosicions == 0) {
-        for (int i = inicioDir; i < inicioDir + numDir; ++i) {
-            Posicio dest(origen.getFila() + direccions[i].df, origen.getColumna() + direccions[i].dc);
-            if (dinsTauler(dest) && casellaBuida(dest)) {
-                posicionsPossibles[nPosicions++] = dest;
-                if (nPosicions >= MAX_MOVIMENTS) return;
+        if (fitxa.getTipus() == TIPUS_DAMA) {
+            // MOVIMIENTOS PARA DAMA - AÑADIR ESTE BLOQUE
+            for (int i = 0; i < MAX_DIR; i++) {
+                Posicio actual = origen;
+                while (true) {
+                    actual = Posicio(actual.getFila() + direccions[i].df,
+                        actual.getColumna() + direccions[i].dc);
+                    if (!dinsTauler(actual)) break;
+
+                    if (casellaBuida(actual)) {
+                        posicionsPossibles[nPosicions++] = actual;
+                    }
+                    else {
+                        // Hay una ficha (propia o contraria)
+                        break;
+                    }
+                }
+            }
+        }
+        else {
+            // Movimientos para fichas normales (tu código actual)
+            int inicioDir = (fitxa.getColor() == COLOR_BLANC) ? 0 : 2;
+            for (int i = inicioDir; i < inicioDir + 2; ++i) {
+                Posicio dest(origen.getFila() + direccions[i].df,
+                    origen.getColumna() + direccions[i].dc);
+                if (dinsTauler(dest) && casellaBuida(dest)) {
+                    posicionsPossibles[nPosicions++] = dest;
+                }
             }
         }
     }
@@ -326,6 +355,35 @@ bool Tauler::mouFitxa(const Posicio& origen, const Posicio& desti) {
     Fitxa fitxaTmp = fitxaOrigen;
     m_tauler[origen.getFila()][origen.getColumna()] = Fitxa(); // Vaciar posición origen
 
+    if (fitxaTmp.getTipus() == TIPUS_DAMA) {
+        int dirFila = (desti.getFila() > origen.getFila()) ? 1 : -1;
+        int dirCol = (desti.getColumna() > origen.getColumna()) ? 1 : -1;
+
+        int fila = origen.getFila();
+        int col = origen.getColumna();
+        bool haCapturat = false;
+
+        while (fila != desti.getFila() && col != desti.getColumna()) {
+            fila += dirFila;
+            col += dirCol;
+            Posicio posIntermedia(fila, col);
+
+            if (fitxaContraria(posIntermedia, fitxaTmp.getColor())) {
+                m_tauler[fila][col] = Fitxa(); // Eliminar ficha capturada
+                haCapturat = true;
+                // Saltar la ficha capturada
+                fila += dirFila;
+                col += dirCol;
+            }
+        }
+
+        // Verificar que si es captura, realmente se capturó
+        if (abs(desti.getFila() - origen.getFila()) > 1 && !haCapturat) {
+            m_tauler[origen.getFila()][origen.getColumna()] = fitxaTmp; // Revertir
+            return false;
+        }
+    }
+
     // 7. Procesar capturas si las hay
     if (esCaptura) {
         int dirFila = (desti.getFila() > origen.getFila()) ? 1 : -1;
@@ -372,10 +430,8 @@ bool Tauler::mouFitxa(const Posicio& origen, const Posicio& desti) {
 
     // 11. Convertir a dama si llega al extremo opuesto
     if (fitxaTmp.getTipus() == TIPUS_NORMAL) {
-        bool esBlancaEnPrimeraFila = (fitxaTmp.getColor() == COLOR_BLANC && desti.getFila() == 0);
-        bool esNegraEnUltimaFila = (fitxaTmp.getColor() == COLOR_NEGRE && desti.getFila() == N_FILES - 1);
-
-        if (esBlancaEnPrimeraFila || esNegraEnUltimaFila) {
+        if ((fitxaTmp.getColor() == COLOR_BLANC && desti.getFila() == 0) ||
+            (fitxaTmp.getColor() == COLOR_NEGRE && desti.getFila() == N_FILES - 1)) {
             m_tauler[desti.getFila()][desti.getColumna()].setTipus(TIPUS_DAMA);
         }
     }
@@ -385,6 +441,7 @@ bool Tauler::mouFitxa(const Posicio& origen, const Posicio& desti) {
 
     return true;
 }
+
 
 void Tauler::bufarFitxa(ColorFitxa color)
 {
