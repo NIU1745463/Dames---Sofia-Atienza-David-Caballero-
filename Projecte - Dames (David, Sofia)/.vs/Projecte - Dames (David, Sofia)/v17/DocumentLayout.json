@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F675D181-E09F-4402-A371-AE4D6909C8D1}|Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia).vcxproj|C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{F675D181-E09F-4402-A371-AE4D6909C8D1}|Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia).vcxproj|solutionrelative:Projecte - Dames (David, Sofia)\\test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F675D181-E09F-4402-A371-AE4D6909C8D1}|Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia).vcxproj|C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\tauler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{F675D181-E09F-4402-A371-AE4D6909C8D1}|Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia).vcxproj|solutionrelative:Projecte - Dames (David, Sofia)\\tauler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -39,10 +35,6 @@
       "RelativeMoniker": "D:0:0:{F675D181-E09F-4402-A371-AE4D6909C8D1}|Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia).vcxproj|solutionrelative:Projecte - Dames (David, Sofia)\\moviment.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F675D181-E09F-4402-A371-AE4D6909C8D1}|Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia).vcxproj|C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\json.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{F675D181-E09F-4402-A371-AE4D6909C8D1}|Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia).vcxproj|solutionrelative:Projecte - Dames (David, Sofia)\\json.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F675D181-E09F-4402-A371-AE4D6909C8D1}|Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia).vcxproj|C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\fitxa.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{F675D181-E09F-4402-A371-AE4D6909C8D1}|Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia).vcxproj|solutionrelative:Projecte - Dames (David, Sofia)\\fitxa.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
@@ -58,85 +50,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "fitxa.cpp",
-              "DocumentMoniker": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\fitxa.cpp",
-              "RelativeDocumentMoniker": "Projecte - Dames (David, Sofia)\\fitxa.cpp",
-              "ToolTip": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\fitxa.cpp",
-              "RelativeToolTip": "Projecte - Dames (David, Sofia)\\fitxa.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-10T13:51:16.966Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "moviment.cpp",
-              "DocumentMoniker": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\moviment.cpp",
-              "RelativeDocumentMoniker": "Projecte - Dames (David, Sofia)\\moviment.cpp",
-              "ToolTip": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\moviment.cpp",
-              "RelativeToolTip": "Projecte - Dames (David, Sofia)\\moviment.cpp",
-              "ViewState": "AgIAACQAAAAAAAAAAAAYwEMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-10T14:31:23.134Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "posicio.cpp",
-              "DocumentMoniker": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\posicio.cpp",
-              "RelativeDocumentMoniker": "Projecte - Dames (David, Sofia)\\posicio.cpp",
-              "ToolTip": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\posicio.cpp",
-              "RelativeToolTip": "Projecte - Dames (David, Sofia)\\posicio.cpp",
-              "ViewState": "AgIAACUAAAAAAAAAAAAYwEQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-10T15:41:34.551Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "tauler.cpp",
-              "DocumentMoniker": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\tauler.cpp",
-              "RelativeDocumentMoniker": "Projecte - Dames (David, Sofia)\\tauler.cpp",
-              "ToolTip": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\tauler.cpp",
-              "RelativeToolTip": "Projecte - Dames (David, Sofia)\\tauler.cpp",
-              "ViewState": "AgIAACYBAAAAAAAAAAAYwC8BAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-10T17:00:25.357Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "test.cpp",
-              "DocumentMoniker": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\test.cpp",
-              "RelativeDocumentMoniker": "Projecte - Dames (David, Sofia)\\test.cpp",
-              "ToolTip": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\test.cpp",
-              "RelativeToolTip": "Projecte - Dames (David, Sofia)\\test.cpp",
-              "ViewState": "AgIAAO4BAAAAAAAAAADwv/8BAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-24T12:36:41.633Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "dames.cpp",
-              "DocumentMoniker": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\dames.cpp",
-              "RelativeDocumentMoniker": "Projecte - Dames (David, Sofia)\\dames.cpp",
-              "ToolTip": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\dames.cpp",
-              "RelativeToolTip": "Projecte - Dames (David, Sofia)\\dames.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-14T08:20:08.833Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "tauler.hpp",
               "DocumentMoniker": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\tauler.hpp",
               "RelativeDocumentMoniker": "Projecte - Dames (David, Sofia)\\tauler.hpp",
@@ -144,25 +58,77 @@
               "RelativeToolTip": "Projecte - Dames (David, Sofia)\\tauler.hpp",
               "ViewState": "AgIAAAoAAAAAAAAAAAAYwCkAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-10T12:35:46.474Z",
+              "WhenOpened": "2025-04-29T14:53:23.783Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
+              "Title": "fitxa.cpp",
+              "DocumentMoniker": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\fitxa.cpp",
+              "RelativeDocumentMoniker": "Projecte - Dames (David, Sofia)\\fitxa.cpp",
+              "ToolTip": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\fitxa.cpp",
+              "RelativeToolTip": "Projecte - Dames (David, Sofia)\\fitxa.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-29T14:53:29.292Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "moviment.cpp",
+              "DocumentMoniker": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\moviment.cpp",
+              "RelativeDocumentMoniker": "Projecte - Dames (David, Sofia)\\moviment.cpp",
+              "ToolTip": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\moviment.cpp",
+              "RelativeToolTip": "Projecte - Dames (David, Sofia)\\moviment.cpp",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABUAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-29T14:53:39.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "posicio.cpp",
+              "DocumentMoniker": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\posicio.cpp",
+              "RelativeDocumentMoniker": "Projecte - Dames (David, Sofia)\\posicio.cpp",
+              "ToolTip": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\posicio.cpp",
+              "RelativeToolTip": "Projecte - Dames (David, Sofia)\\posicio.cpp",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAEUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-29T14:53:48.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "tauler.cpp",
+              "DocumentMoniker": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\tauler.cpp",
+              "RelativeDocumentMoniker": "Projecte - Dames (David, Sofia)\\tauler.cpp",
+              "ToolTip": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\tauler.cpp",
+              "RelativeToolTip": "Projecte - Dames (David, Sofia)\\tauler.cpp",
+              "ViewState": "AgIAAFwBAAAAAAAAAAAiwGUBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-29T14:54:13.524Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "posicio.hpp",
               "DocumentMoniker": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\posicio.hpp",
               "RelativeDocumentMoniker": "Projecte - Dames (David, Sofia)\\posicio.hpp",
               "ToolTip": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\posicio.hpp",
               "RelativeToolTip": "Projecte - Dames (David, Sofia)\\posicio.hpp",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAYwCQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAYwBwAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-10T12:35:36.372Z",
+              "WhenOpened": "2025-04-29T14:52:55.135Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "moviment.h",
               "DocumentMoniker": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\moviment.h",
               "RelativeDocumentMoniker": "Projecte - Dames (David, Sofia)\\moviment.h",
@@ -170,25 +136,12 @@
               "RelativeToolTip": "Projecte - Dames (David, Sofia)\\moviment.h",
               "ViewState": "AgIAAAYAAAAAAAAAAAAYwCUAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-10T12:35:07.141Z",
+              "WhenOpened": "2025-04-29T14:52:36.632Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "json.hpp",
-              "DocumentMoniker": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\json.hpp",
-              "RelativeDocumentMoniker": "Projecte - Dames (David, Sofia)\\json.hpp",
-              "ToolTip": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\json.hpp",
-              "RelativeToolTip": "Projecte - Dames (David, Sofia)\\json.hpp",
-              "ViewState": "AgIAALkPAAAAAAAAAAAiwM8PAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-24T12:39:18.157Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
               "Title": "fitxa.h",
               "DocumentMoniker": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\fitxa.h",
               "RelativeDocumentMoniker": "Projecte - Dames (David, Sofia)\\fitxa.h",
@@ -196,7 +149,20 @@
               "RelativeToolTip": "Projecte - Dames (David, Sofia)\\fitxa.h",
               "ViewState": "AgIAAAgAAAAAAAAAAAAYwCcAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-10T12:28:20.25Z",
+              "WhenOpened": "2025-04-29T14:52:30.365Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "dames.cpp",
+              "DocumentMoniker": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\dames.cpp",
+              "RelativeDocumentMoniker": "Projecte - Dames (David, Sofia)\\dames.cpp",
+              "ToolTip": "C:\\Users\\dacab\\Desktop\\Dames - Sofia Atienza, David Caballero\\Projecte - Dames (David, Sofia)\\Projecte - Dames (David, Sofia)\\dames.cpp",
+              "RelativeToolTip": "Projecte - Dames (David, Sofia)\\dames.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-29T14:52:09.809Z",
               "EditorCaption": ""
             }
           ]

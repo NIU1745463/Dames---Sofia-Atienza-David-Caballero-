@@ -66,3 +66,4 @@ ostream& operator<<(ostream& os, const Posicio& pos) {
 	os << pos.toString();
 	return os;
 }
+
