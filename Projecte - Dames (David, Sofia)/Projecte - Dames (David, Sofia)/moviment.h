@@ -13,6 +13,7 @@ class Moviment
 public:
     Moviment();
     void actualitzaMovimentsValids(Tauler& tauler);
+    bool mouFitxa(Tauler& tauler, const Posicio& origen, const Posicio& desti);
 
 private:
     Fitxa m_fitxa;
