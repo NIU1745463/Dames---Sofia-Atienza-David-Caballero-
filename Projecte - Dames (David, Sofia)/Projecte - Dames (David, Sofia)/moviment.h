@@ -3,14 +3,16 @@
 
 #include "fitxa.h"
 #include "posicio.hpp"
-#include "tauler.hpp"
 
 const int MAX_SALTS = 8;
+
+class Tauler;
 
 class Moviment
 {
 public:
     Moviment();
+    void actualitzaMovimentsValids(Tauler& tauler);
 
 private:
     Fitxa m_fitxa;
