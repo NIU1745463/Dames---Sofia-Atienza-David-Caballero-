@@ -11,10 +11,12 @@ using namespace std;
 
 const int MAX_MOVIMENTS = 1000;
 
+class Moviment;
 
 class Tauler {
 public:
     Tauler();
+    friend class Moviment;
     void inicialitza(const string& nomFitxer);
     void actualitzaMovimentsValids();
     void getPosicionsPossibles(const Posicio& origen, int& nPosicions, Posicio posicionsPossibles[]) const;
@@ -30,7 +32,7 @@ private:
     void llegeixTauler(const string& nomFitxer, char tauler[N_FILES][N_COLUMNES]);
     void escriuTauler(const string& nomFitxer, char tauler[N_FILES][N_COLUMNES]);
     //crear esta en la funcion del tauler void generarMovimentsFitxaNormal(const Posicio& pos, Moviment& mov) const;
-    // lo mismo aquí void generarMovimentsDama(const Posicio& pos, Moviment& mov) const;
+    // lo mismo aquÃ­ void generarMovimentsDama(const Posicio& pos, Moviment& mov) const;
     bool dinsTauler(const Posicio& pos) const;
     bool casellaBuida(const Posicio& pos) const;
     bool fitxaContraria(const Posicio& pos, ColorFitxa color) const;
