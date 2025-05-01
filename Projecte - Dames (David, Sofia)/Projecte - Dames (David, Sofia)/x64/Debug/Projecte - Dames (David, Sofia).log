@@ -1,8 +1,4 @@
-﻿  dames.cpp
-  fitxa.cpp
-  moviment.cpp
-  posicio.cpp
-  tauler.cpp
+﻿  tauler.cpp
   test.cpp
 C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\test.cpp(95,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\dacab\Desktop\Dames - Sofia Atienza, David Caballero\Projecte - Dames (David, Sofia)\Projecte - Dames (David, Sofia)\test.cpp(444,22): warning C4305: '+=': truncation from 'double' to 'float'

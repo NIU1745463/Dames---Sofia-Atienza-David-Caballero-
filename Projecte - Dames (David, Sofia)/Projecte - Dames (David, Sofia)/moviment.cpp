@@ -78,21 +78,4 @@ bool Moviment::movimentValid() const {
     return (m_nCaselles > 0) ? (m_salts[m_nCaselles - 1] == m_final) : true;
 }
 
-/*/bool Moviment::movimentValid() const
-{
-    Posicio possPossibles[MAX_MOVIMENTS]; 
-    int nPosicions = 0;
-
-    Tauler m_tauler;
-
-    for (int i = 0; i < nPosicions; ++i)
-    {
-        if (possPossibles[i] == m_final)
-        {
-            return true;
-        }
-    }
-    return false;
-}
-*/
 
