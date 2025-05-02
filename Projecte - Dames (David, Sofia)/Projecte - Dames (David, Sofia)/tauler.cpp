@@ -65,28 +65,40 @@ void Tauler::escriuTauler(const string& nomFitxer, char tauler[N_FILES][N_COLUMN
 
 }
 
-void Tauler::actualitzaMovimentsValids() {
+void Tauler::actualitzaMovimentsValids() 
+{
     Moviment mov;                         
-    mov.actualitzaMovimentsValids(*this); 
+    mov.actualitzaMovimentsValids(*this); // Ens veiem obligats a utilitzar memoria dinamica
 }
-void Tauler::inicialitza(const string& nomFitxer) {
+
+void Tauler::inicialitza(const string& nomFitxer) 
+{
     Moviment mov;
     netejaTauler();
     char taulerTemp[N_FILES][N_COLUMNES];
-    llegeixTauler(nomFitxer, taulerTemp);
+    llegeixTauler(nomFitxer, taulerTemp); // Es declara un tauler buit temporal per omplir-lp
 
-    for (int i = 0; i < N_FILES; i++) {
-        for (int j = 0; j < N_COLUMNES; j++) {
-            switch (taulerTemp[i][j]) {
-            case 'O': m_tauler[i][j] = Fitxa(COLOR_BLANC, TIPUS_NORMAL, 1); break;
-            case 'X': m_tauler[i][j] = Fitxa(COLOR_NEGRE, TIPUS_NORMAL, 2); break;
-            case 'D': m_tauler[i][j] = Fitxa(COLOR_BLANC, TIPUS_DAMA, 1); break;
-            case 'R': m_tauler[i][j] = Fitxa(COLOR_NEGRE, TIPUS_DAMA, 2); break;
-            default: m_tauler[i][j] = Fitxa(); break;
+    for (int i = 0; i < N_FILES; i++) 
+    {
+        for (int j = 0; j < N_COLUMNES; j++) 
+        {
+            switch (taulerTemp[i][j]) // El tauler temporal es pasa a m_tauler
+            {
+            case 'O': m_tauler[i][j] = Fitxa(COLOR_BLANC, TIPUS_NORMAL, 1); 
+                break;
+            case 'X': m_tauler[i][j] = Fitxa(COLOR_NEGRE, TIPUS_NORMAL, 2); 
+                break;
+            case 'D': m_tauler[i][j] = Fitxa(COLOR_BLANC, TIPUS_DAMA, 1); 
+                break;
+            case 'R': m_tauler[i][j] = Fitxa(COLOR_NEGRE, TIPUS_DAMA, 2); 
+                break;
+            default: m_tauler[i][j] = Fitxa(); 
+                break; 
             }
         }
     }
-    mov.actualitzaMovimentsValids(*this );
+    mov.actualitzaMovimentsValids(*this); 
+    // Necesitem que es puguin veure els moviments vàlids de m_tauler, em utilitzat memoria dinamica per simplificar-ho 
 }
 
 
@@ -94,12 +106,15 @@ void Tauler::inicialitza(const string& nomFitxer) {
 bool Tauler::dinsTauler(const Posicio& pos) const
 {
     return pos.getFila() >= 0 && pos.getFila() < N_FILES &&
-        pos.getColumna() >= 0 && pos.getColumna() < N_COLUMNES; // Aplico directament la condicio logica perque retorni o true o false
+        pos.getColumna() >= 0 && pos.getColumna() < N_COLUMNES; 
+    // Aplico directament la condicio logica perque retorni o true o false
+    // En el cas de complir les condicions dinsTauler = true
 }
 
 bool Tauler::casellaBuida(const Posicio& pos) const
 {
     return dinsTauler(pos) && m_tauler[pos.getFila()][pos.getColumna()].getTipus() == TIPUS_EMPTY;
+    // Mirem el tipus de casella en una posicio determinada, si es vuida retorna true
 }
 
 bool Tauler::fitxaContraria(const Posicio& pos, ColorFitxa color) const
@@ -109,70 +124,86 @@ bool Tauler::fitxaContraria(const Posicio& pos, ColorFitxa color) const
         m_tauler[pos.getFila()][pos.getColumna()].getColor() != color;
 } // Si no esta ni buit y es del color contrari al meu, evidentment hi ha una fitxa contraria
 
-void Tauler::buscarCaptures(const Posicio& origen, int& nPosicions, Posicio posicionsPossibles[]) const {
+void Tauler::buscarCaptures(const Posicio& origen, int& nPosicions, Posicio posicionsPossibles[]) const 
+{
     nPosicions = 0;
-    const Fitxa& fitxa = m_tauler[origen.getFila()][origen.getColumna()];
-    if (fitxa.getTipus() == TIPUS_EMPTY) return;
+    const Fitxa& fitxa = m_tauler[origen.getFila()][origen.getColumna()]; //Declarem una fitxa la cual extreurem la seva posicio en el tauler
+    
+    if (fitxa.getTipus() == TIPUS_EMPTY) 
+        return; // Evidentment, si no hi ha fitxa, no hem de continuar
 
-    const int MAX_DIR = 4;
+    const int MAX_DIR = 4; 
     struct Direccio { int df; int dc; };
-    Direccio direccions[MAX_DIR] = { {-1,-1}, {-1,1}, {1,-1}, {1,1} };
+    Direccio direccions[MAX_DIR] = { {-1,-1}, {-1,1}, {1,-1}, {1,1} }; // Son els 4 moviments que es poden realitzar
 
-    if (fitxa.getTipus() == TIPUS_NORMAL) {
-        // Capturas para fichas normales
-        for (int i = 0; i < MAX_DIR; ++i) {
+    if (fitxa.getTipus() == TIPUS_NORMAL) // Realitzem els moviments per les fitxes normals, despres farem el mateix per les dames
+    {
+        for (int i = 0; i < MAX_DIR; ++i) 
+        {
             Posicio mig(origen.getFila() + direccions[i].df, origen.getColumna() + direccions[i].dc);
             Posicio dest(origen.getFila() + 2 * direccions[i].df, origen.getColumna() + 2 * direccions[i].dc);
 
-            if (dinsTauler(mig) && dinsTauler(dest) &&
-                casellaBuida(dest) &&
-                fitxaContraria(mig, fitxa.getColor())) {
+            if (dinsTauler(mig) && dinsTauler(dest) && casellaBuida(dest) &&
+                fitxaContraria(mig, fitxa.getColor())) 
+            {
                 posicionsPossibles[nPosicions++] = dest;
             }
         }
     }
-    else {
-        // Capturas para damas - considerar todas las posibilidades
-        for (int i = 0; i < MAX_DIR; ++i) {
+    else //Aquest else es pel TIPUS_DAMA
+    {
+        for (int i = 0; i < MAX_DIR; ++i) 
+        {
             Posicio actual = origen;
             bool haTrobatFitxa = false;
-            Posicio posFitxaContraria;
+            Posicio posFitxaContraria; // Ara busquem el que seria la primera fitxa contraria // ME HE QUEDADO AQUÍ
 
-            // Buscar primera ficha contraria en esta dirección
-            while (true) {
+            while (true) 
+            {
                 actual = Posicio(actual.getFila() + direccions[i].df,
                     actual.getColumna() + direccions[i].dc);
-                if (!dinsTauler(actual)) break;
+                if (!dinsTauler(actual)) 
+                    break;
 
-                if (!haTrobatFitxa) {
-                    if (fitxaContraria(actual, fitxa.getColor())) {
+                if (!haTrobatFitxa) 
+                {
+                    if (fitxaContraria(actual, fitxa.getColor())) 
+                    {
                         haTrobatFitxa = true;
                         posFitxaContraria = actual;
                     }
-                    else if (!casellaBuida(actual)) {
-                        break; // Ficha propia bloqueando
+                    else if (!casellaBuida(actual)) 
+                    {
+                        break; // Una fitxa propia bloqueja
                     }
                 }
-                else {
-                    if (casellaBuida(actual)) {
+                else 
+                {
+                    if (casellaBuida(actual)) 
+                    {
                         // Añadir todas las posiciones válidas después de la captura
                         posicionsPossibles[nPosicions++] = actual;
                     }
-                    else {
+                    else 
+                    {
                         break; // Segunda ficha bloqueando
                     }
                 }
             }
 
             // Si encontramos una ficha contraria, explorar más allá
-            if (haTrobatFitxa) {
+            if (haTrobatFitxa) 
+            {
                 actual = posFitxaContraria;
-                while (true) {
+                while (true) 
+                {
                     actual = Posicio(actual.getFila() + direccions[i].df,
                         actual.getColumna() + direccions[i].dc);
-                    if (!dinsTauler(actual)) break;
+                    if (!dinsTauler(actual))
+                        break;
 
-                    if (casellaBuida(actual)) {
+                    if (casellaBuida(actual)) 
+                    {
                         posicionsPossibles[nPosicions++] = actual;
                     }
                     else {
@@ -359,8 +390,24 @@ int Tauler::calculaNumCaptures(const Posicio& origen, const Posicio& desti) cons
     int captures = 0;
     int deltaFila = desti.getFila() - origen.getFila();
     int deltaCol = desti.getColumna() - origen.getColumna();
-    int df = (deltaFila > 0) ? 1 : -1;
-    int dc = (deltaCol > 0) ? 1 : -1;
+
+    // Reemplazo del operador ternario para df
+    int df;
+    if (deltaFila > 0) {
+        df = 1;
+    }
+    else {
+        df = -1;
+    }
+
+    // Reemplazo del operador ternario para dc
+    int dc;
+    if (deltaCol > 0) {
+        dc = 1;
+    }
+    else {
+        dc = -1;
+    }
 
     int fila = origen.getFila() + df;
     int col = origen.getColumna() + dc;
@@ -413,10 +460,20 @@ string Tauler::toString() const {
             const Fitxa& f = m_tauler[i][j];
             string c = "_";
             if (f.getTipus() == TIPUS_NORMAL) {
-                c = (f.getColor() == COLOR_BLANC) ? "O" : "X";
+                if (f.getColor() == COLOR_BLANC) {
+                    c = "O";
+                }
+                else {
+                    c = "X";
+                }
             }
             else if (f.getTipus() == TIPUS_DAMA) {
-                c = (f.getColor() == COLOR_BLANC) ? "D" : "R";
+                if (f.getColor() == COLOR_BLANC) {
+                    c = "D";
+                }
+                else {
+                    c = "R";
+                }
             }
             out += c + " ";
         }
