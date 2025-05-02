@@ -15,7 +15,6 @@ class Moviment;
 
 class Tauler {
 public: 
-    //CONSTRUCTOR
     Tauler();
     friend class Moviment; 
     void inicialitza(const string& nomFitxer);
