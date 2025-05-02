@@ -140,11 +140,11 @@ void Tauler::buscarCaptures(const Posicio& origen, int& nPosicions, Posicio posi
     {
         for (int i = 0; i < MAX_DIR; ++i) 
         {
-            Posicio mig(origen.getFila() + direccions[i].df, origen.getColumna() + direccions[i].dc);
+            Posicio mig(origen.getFila() + direccions[i].df, origen.getColumna() + direccions[i].dc); 
             Posicio dest(origen.getFila() + 2 * direccions[i].df, origen.getColumna() + 2 * direccions[i].dc);
+            // Obtenim les posicions del mig y la del final (al fer una captura es mouen dues caselles, per aixo es diferencien)
 
-            if (dinsTauler(mig) && dinsTauler(dest) && casellaBuida(dest) &&
-                fitxaContraria(mig, fitxa.getColor())) 
+            if (dinsTauler(mig) && dinsTauler(dest) && casellaBuida(dest) && fitxaContraria(mig, fitxa.getColor())) 
             {
                 posicionsPossibles[nPosicions++] = dest;
             }
@@ -156,13 +156,116 @@ void Tauler::buscarCaptures(const Posicio& origen, int& nPosicions, Posicio posi
         {
             Posicio actual = origen;
             bool haTrobatFitxa = false;
-            Posicio posFitxaContraria; // Ara busquem el que seria la primera fitxa contraria // ME HE QUEDADO AQUÍ
+            Posicio posFitxaContraria; // Ara busquem el que seria la primera fitxa contraria 
 
             while (true) 
             {
-                actual = Posicio(actual.getFila() + direccions[i].df,
-                    actual.getColumna() + direccions[i].dc);
-                if (!dinsTauler(actual)) 
+                actual = Posicio(actual.getFila() + direccions[i].df, actual.getColumna() + direccions[i].dc);
+                
+                if (dinsTauler(actual) == false) // Evidentment si no esta dins no te sentit continuar
+                    break;
+
+                if (haTrobatFitxa == false) 
+                {
+                    if (fitxaContraria(actual, fitxa.getColor())) 
+                    {
+                        haTrobatFitxa = true;
+                        posFitxaContraria = actual;
+                    }
+                    else if (casellaBuida(actual) == false) 
+                    {
+                        break; // Una fitxa propia esta bloquejant
+                    }
+                }
+                else 
+                {
+                    if (casellaBuida(actual)) 
+                    {
+                        posicionsPossibles[nPosicions++] = actual; // Afegim les posicions després de la captura
+                    }
+                    else 
+                    {
+                        break; // Una segona gitxa bloqueando
+                    }
+                }
+            }
+
+            // En cas de trobar una fitxa contraria, s'han de valorar mes moviments
+            if (haTrobatFitxa) 
+            {
+                actual = posFitxaContraria;
+                while (true) 
+                {
+                    actual = Posicio(actual.getFila() + direccions[i].df, actual.getColumna() + direccions[i].dc);
+                    if (dinsTauler(actual) == false)
+                        break;
+
+                    if (casellaBuida(actual)) 
+                    {
+                        posicionsPossibles[nPosicions++] = actual;
+                    }
+                    else 
+                    {
+                        break; // Aixo signficia que hi ha una altra fitxa
+                    }
+                }
+            }
+        }
+    }
+}
+
+void Tauler::getPosicionsPossibles(const Posicio& origen, int& nPosicions, Posicio posicionsPossibles[]) const 
+{
+    nPosicions = 0;
+    if (dinsTauler(origen) == false) 
+        return;
+
+    const Fitxa& fitxa = m_tauler[origen.getFila()][origen.getColumna()]; //Declarem una fitxa la cual extreurem la seva posicio en el tauler
+    
+    if (fitxa.getTipus() == TIPUS_EMPTY) // Aquesta part te la mateixa explicacio que buscarcaptures
+        return;
+
+    const int MAX_DIR = 4;
+    struct Direccio { int df; int dc; };
+    Direccio direccions[MAX_DIR] = { {-1,-1}, {-1,1}, {1,-1}, {1,1} };
+
+    struct MovimentCaptura 
+    {
+        Posicio desti;
+        Posicio fitxaCapturada;
+    };
+    MovimentCaptura captures[MAX_MOVIMENTS];  // Fem un array per guardar captures, basat en l'struct
+
+    int numCaptures = 0;
+
+    if (fitxa.getTipus() == TIPUS_NORMAL) // Primer busquem les captures possibles
+    {
+        // Per normals
+        for (int i = 0; i < MAX_DIR; ++i) 
+        {
+            Posicio mig(origen.getFila() + direccions[i].df, origen.getColumna() + direccions[i].dc);
+            Posicio dest(origen.getFila() + 2 * direccions[i].df, origen.getColumna() + 2 * direccions[i].dc);
+
+            if (dinsTauler(mig) && dinsTauler(dest) && casellaBuida(dest) &&
+                fitxaContraria(mig, fitxa.getColor())) // Si en mig hi ha una fitxa contraria es podra fer la captura
+            {
+                captures[numCaptures++] = { dest, mig }; // Guardem la captura a l'array fet anteriorment
+            }
+        }
+    }
+    else 
+    {
+        // Per dames // Tot aixo funciona igual que en buscarcaptures
+        for (int i = 0; i < MAX_DIR; ++i) 
+        {
+            Posicio actual = origen;
+            bool haTrobatFitxa = false;
+            Posicio posFitxaContraria;
+
+            while (true) 
+            {
+                actual = Posicio(actual.getFila() + direccions[i].df, actual.getColumna() + direccions[i].dc);
+                if (dinsTauler(actual) == false) 
                     break;
 
                 if (!haTrobatFitxa) 
@@ -172,140 +275,55 @@ void Tauler::buscarCaptures(const Posicio& origen, int& nPosicions, Posicio posi
                         haTrobatFitxa = true;
                         posFitxaContraria = actual;
                     }
-                    else if (!casellaBuida(actual)) 
+                    else if (casellaBuida(actual) == false) 
                     {
-                        break; // Una fitxa propia bloqueja
+                        break; 
                     }
                 }
                 else 
                 {
                     if (casellaBuida(actual)) 
                     {
-                        // Añadir todas las posiciones válidas después de la captura
-                        posicionsPossibles[nPosicions++] = actual;
+                        captures[numCaptures++] = { actual, posFitxaContraria };
                     }
                     else 
                     {
-                        break; // Segunda ficha bloqueando
+                        break; 
                     }
                 }
             }
 
-            // Si encontramos una ficha contraria, explorar más allá
+            
             if (haTrobatFitxa) 
             {
                 actual = posFitxaContraria;
                 while (true) 
                 {
-                    actual = Posicio(actual.getFila() + direccions[i].df,
-                        actual.getColumna() + direccions[i].dc);
-                    if (!dinsTauler(actual))
+                    actual = Posicio(actual.getFila() + direccions[i].df, actual.getColumna() + direccions[i].dc);
+                    if (dinsTauler(actual) == false) 
                         break;
 
                     if (casellaBuida(actual)) 
                     {
-                        posicionsPossibles[nPosicions++] = actual;
-                    }
-                    else {
-                        break; // Otra ficha bloqueando
-                    }
-                }
-            }
-        }
-    }
-}
-
-void Tauler::getPosicionsPossibles(const Posicio& origen, int& nPosicions, Posicio posicionsPossibles[]) const {
-    nPosicions = 0;
-    if (!dinsTauler(origen)) return;
-
-    const Fitxa& fitxa = m_tauler[origen.getFila()][origen.getColumna()];
-    if (fitxa.getTipus() == TIPUS_EMPTY) return;
-
-    const int MAX_DIR = 4;
-    struct Direccio { int df; int dc; };
-    Direccio direccions[MAX_DIR] = { {-1,-1}, {-1,1}, {1,-1}, {1,1} };
-
-    // Array para almacenar capturas
-    struct MovimentCaptura {
-        Posicio desti;
-        Posicio fitxaCapturada;
-    };
-    MovimentCaptura captures[MAX_MOVIMENTS];
-    int numCaptures = 0;
-
-    // 1. Buscar capturas posibles
-    if (fitxa.getTipus() == TIPUS_NORMAL) {
-        // Para fichas normales
-        for (int i = 0; i < MAX_DIR; ++i) {
-            Posicio mig(origen.getFila() + direccions[i].df, origen.getColumna() + direccions[i].dc);
-            Posicio dest(origen.getFila() + 2 * direccions[i].df, origen.getColumna() + 2 * direccions[i].dc);
-
-            if (dinsTauler(mig) && dinsTauler(dest) &&
-                casellaBuida(dest) &&
-                fitxaContraria(mig, fitxa.getColor())) {
-                captures[numCaptures++] = { dest, mig };
-            }
-        }
-    }
-    else {
-        // Para damas
-        for (int i = 0; i < MAX_DIR; ++i) {
-            Posicio actual = origen;
-            bool haTrobatFitxa = false;
-            Posicio posFitxaContraria;
-
-            // Buscar primera ficha contraria en esta dirección
-            while (true) {
-                actual = Posicio(actual.getFila() + direccions[i].df,
-                    actual.getColumna() + direccions[i].dc);
-                if (!dinsTauler(actual)) break;
-
-                if (!haTrobatFitxa) {
-                    if (fitxaContraria(actual, fitxa.getColor())) {
-                        haTrobatFitxa = true;
-                        posFitxaContraria = actual;
-                    }
-                    else if (!casellaBuida(actual)) {
-                        break; // Ficha propia bloqueando
-                    }
-                }
-                else {
-                    if (casellaBuida(actual)) {
-                        // Añadir todas las posiciones válidas después de la captura
                         captures[numCaptures++] = { actual, posFitxaContraria };
                     }
-                    else {
-                        break; // Segunda ficha bloqueando
-                    }
-                }
-            }
-
-            // Si encontramos una ficha contraria, explorar más allá
-            if (haTrobatFitxa) {
-                actual = posFitxaContraria;
-                while (true) {
-                    actual = Posicio(actual.getFila() + direccions[i].df,
-                        actual.getColumna() + direccions[i].dc);
-                    if (!dinsTauler(actual)) break;
-
-                    if (casellaBuida(actual)) {
-                        captures[numCaptures++] = { actual, posFitxaContraria };
-                    }
-                    else {
-                        break; // Otra ficha bloqueando
+                    else 
+                    {
+                        break; 
                     }
                 }
             }
         }
     }
 
-    // 2. Si hay capturas, procesarlas
-    if (numCaptures > 0) {
-        for (int i = 0; i < numCaptures && nPosicions < MAX_MOVIMENTS; ++i) {
+    // Aqui es on canvia la funcio, ja que haurem de procesar les captures amb buscarCaptures
+    if (numCaptures > 0) 
+    {
+        for (int i = 0; i < numCaptures && nPosicions < MAX_MOVIMENTS; ++i) 
+        {
             posicionsPossibles[nPosicions++] = captures[i].desti;
 
-            // Simular movimiento para capturas múltiples
+            // Simulem el moviment per realitzar captures multiples, ens hem vist obligat a utilitzar memoria dinamica
             Tauler taulerTemp = *this;
             taulerTemp.m_tauler[origen.getFila()][origen.getColumna()] = Fitxa();
             taulerTemp.m_tauler[captures[i].fitxaCapturada.getFila()][captures[i].fitxaCapturada.getColumna()] = Fitxa();
@@ -313,17 +331,21 @@ void Tauler::getPosicionsPossibles(const Posicio& origen, int& nPosicions, Posic
 
             Posicio novesCaptures[MAX_MOVIMENTS];
             int numNovesCaptures = 0;
-            taulerTemp.buscarCaptures(captures[i].desti, numNovesCaptures, novesCaptures);
+            taulerTemp.buscarCaptures(captures[i].desti, numNovesCaptures, novesCaptures); // COMENTADO HASTA AQUÍ
 
-            for (int j = 0; j < numNovesCaptures && nPosicions < MAX_MOVIMENTS; ++j) {
+            for (int j = 0; j < numNovesCaptures && nPosicions < MAX_MOVIMENTS; ++j) 
+            {
                 bool repetida = false;
-                for (int k = 0; k < nPosicions; ++k) {
-                    if (posicionsPossibles[k] == novesCaptures[j]) {
+                for (int k = 0; k < nPosicions; ++k)
+                {
+                    if (posicionsPossibles[k] == novesCaptures[j]) 
+                    {
                         repetida = true;
                         break;
                     }
                 }
-                if (!repetida) {
+                if (repetida == false) 
+                {
                     posicionsPossibles[nPosicions++] = novesCaptures[j];
                 }
             }
@@ -331,49 +353,69 @@ void Tauler::getPosicionsPossibles(const Posicio& origen, int& nPosicions, Posic
     }
 
     // 3. Movimientos simples sin captura
-    if (fitxa.getTipus() == TIPUS_NORMAL) {
+    if (fitxa.getTipus() == TIPUS_NORMAL) 
+    {
         // Para fichas normales
-        int direccio = (fitxa.getColor() == COLOR_BLANC) ? -1 : 1; // Blancas hacia arriba, negras hacia abajo
+        int direccio;
+        if (fitxa.getColor() == COLOR_BLANC) 
+        {
+            direccio = -1;  // Fichas blancas se mueven hacia arriba (filas decrecientes)
+        }
+        else 
+        {
+            direccio = 1;   // Fichas negras se mueven hacia abajo (filas crecientes)
+        }
 
         // Diagonal izquierda
         Posicio dest1(origen.getFila() + direccio, origen.getColumna() - 1);
-        if (dinsTauler(dest1) && casellaBuida(dest1)) {
+        if (dinsTauler(dest1) && casellaBuida(dest1)) 
+        {
             posicionsPossibles[nPosicions++] = dest1;
         }
 
         // Diagonal derecha
         Posicio dest2(origen.getFila() + direccio, origen.getColumna() + 1);
-        if (dinsTauler(dest2) && casellaBuida(dest2)) {
+        if (dinsTauler(dest2) && casellaBuida(dest2)) 
+        {
             posicionsPossibles[nPosicions++] = dest2;
         }
     }
-    else {
+    else 
+    {
         // Para damas - todas las direcciones
-        for (int i = 0; i < MAX_DIR; ++i) {
+        for (int i = 0; i < MAX_DIR; ++i) 
+        {
             Posicio actual = origen;
-            while (true) {
+            while (true) 
+            {
                 actual = Posicio(actual.getFila() + direccions[i].df,
                     actual.getColumna() + direccions[i].dc);
-                if (!dinsTauler(actual)) break;
+                if (dinsTauler(actual) == false) 
+                    break;
 
-                if (casellaBuida(actual)) {
+                if (casellaBuida(actual))
+                {
                     posicionsPossibles[nPosicions++] = actual;
                 }
-                else {
-                    if (fitxaContraria(actual, fitxa.getColor())) {
-                        // Check for capture
-                        Posicio dest = Posicio(actual.getFila() + direccions[i].df,
-                            actual.getColumna() + direccions[i].dc);
-                        if (dinsTauler(dest) && casellaBuida(dest)) {
+                else 
+                {
+                    if (fitxaContraria(actual, fitxa.getColor())) 
+                    {
+                        // Busquem capture
+                        Posicio dest = Posicio(actual.getFila() + direccions[i].df, actual.getColumna() + direccions[i].dc);
+                        if (dinsTauler(dest) && casellaBuida(dest)) 
+                        {
                             posicionsPossibles[nPosicions++] = dest;
-                            // Continue to next square after capture
+                            // Anem a la seguent casella
                             actual = dest;
                         }
-                        else {
+                        else 
+                        {
                             break;
                         }
                     }
-                    else {
+                    else 
+                    {
                         break;
                     }
                 }
@@ -381,38 +423,44 @@ void Tauler::getPosicionsPossibles(const Posicio& origen, int& nPosicions, Posic
         }
     }
 }
-bool Tauler::mouFitxa(const Posicio& origen, const Posicio& desti) {
+bool Tauler::mouFitxa(const Posicio& origen, const Posicio& desti) 
+{
     Moviment mov;  
     return mov.mouFitxa(*this, origen, desti);
 }
 
-int Tauler::calculaNumCaptures(const Posicio& origen, const Posicio& desti) const {
+int Tauler::calculaNumCaptures(const Posicio& origen, const Posicio& desti) const 
+{
     int captures = 0;
     int deltaFila = desti.getFila() - origen.getFila();
     int deltaCol = desti.getColumna() - origen.getColumna();
 
-    // Reemplazo del operador ternario para df
     int df;
-    if (deltaFila > 0) {
+    if (deltaFila > 0) 
+    {
         df = 1;
     }
-    else {
+    else 
+    {
         df = -1;
     }
 
-    // Reemplazo del operador ternario para dc
     int dc;
-    if (deltaCol > 0) {
+    if (deltaCol > 0) 
+    {
         dc = 1;
     }
-    else {
+    else 
+    {
         dc = -1;
     }
 
     int fila = origen.getFila() + df;
     int col = origen.getColumna() + dc;
-    while (fila != desti.getFila() || col != desti.getColumna()) {
-        if (m_tauler[fila][col].getTipus() != TIPUS_EMPTY) {
+    while (fila != desti.getFila() || col != desti.getColumna()) 
+    {
+        if (m_tauler[fila][col].getTipus() != TIPUS_EMPTY) 
+        {
             captures++;
         }
         fila += df;
@@ -421,15 +469,19 @@ int Tauler::calculaNumCaptures(const Posicio& origen, const Posicio& desti) cons
     return captures;
 }
 
-void Tauler::bufarFitxa(ColorFitxa color) {
+void Tauler::bufarFitxa(ColorFitxa color) 
+{
     // Buscar la(s) ficha(s) del color que tenían capturas pero no se han movido
     Posicio candidates[MAX_MOVIMENTS];
     int nCandidates = 0;
 
-    for (int fila = 0; fila < N_FILES; ++fila) {
-        for (int col = 0; col < N_COLUMNES; ++col) {
+    for (int fila = 0; fila < N_FILES; ++fila) 
+    {
+        for (int col = 0; col < N_COLUMNES; ++col) 
+        {
             const Fitxa& fitxa = m_tauler[fila][col];
-            if (fitxa.getColor() == color && fitxa.getTipus() != TIPUS_EMPTY) {
+            if (fitxa.getColor() == color && fitxa.getTipus() != TIPUS_EMPTY) 
+            {
                 Posicio origen(fila, col);
                 Posicio possibles[MAX_MOVIMENTS];
                 int nPos = 0;
@@ -444,7 +496,8 @@ void Tauler::bufarFitxa(ColorFitxa color) {
     }
 
     // Borrar la primera ficha encontrada con captura disponible
-    if (nCandidates > 0) {
+    if (nCandidates > 0) 
+    {
         int fila = candidates[0].getFila();
         int col = candidates[0].getColumna();
         m_tauler[fila][col] = Fitxa(); // Bufada
@@ -453,25 +506,34 @@ void Tauler::bufarFitxa(ColorFitxa color) {
     actualitzaMovimentsValids();
 }
 
-string Tauler::toString() const {
+string Tauler::toString() const 
+{
     string out;
-    for (int i = 0; i < N_FILES; ++i) {
-        for (int j = 0; j < N_COLUMNES; ++j) {
+    for (int i = 0; i < N_FILES; ++i) 
+    {
+        for (int j = 0; j < N_COLUMNES; ++j) 
+        {
             const Fitxa& f = m_tauler[i][j];
             string c = "_";
-            if (f.getTipus() == TIPUS_NORMAL) {
-                if (f.getColor() == COLOR_BLANC) {
+            if (f.getTipus() == TIPUS_NORMAL) 
+            {
+                if (f.getColor() == COLOR_BLANC) 
+                {
                     c = "O";
                 }
-                else {
+                else 
+                {
                     c = "X";
                 }
             }
-            else if (f.getTipus() == TIPUS_DAMA) {
-                if (f.getColor() == COLOR_BLANC) {
+            else if (f.getTipus() == TIPUS_DAMA) 
+            {
+                if (f.getColor() == COLOR_BLANC) 
+                {
                     c = "D";
                 }
-                else {
+                else 
+                {
                     c = "R";
                 }
             }
