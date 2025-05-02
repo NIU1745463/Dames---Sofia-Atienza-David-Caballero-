@@ -3,8 +3,8 @@
 
 Moviment::Moviment()
 {
-	m_fitxesMatades = 0;
-	m_nCaselles = 0;
+    m_fitxesMatades = 0;
+    m_nCaselles = 0;
 }
 
 void Moviment::actualitzaMovimentsValids(Tauler& tauler) {
@@ -26,26 +26,26 @@ void Moviment::actualitzaMovimentsValids(Tauler& tauler) {
     }
 }
 
-bool Moviment::mouFitxa(Tauler& tauler, const Posicio& origen, const Posicio& desti) 
+bool Moviment::mouFitxa(Tauler& tauler, const Posicio& origen, const Posicio& desti)
 {
 
     if (!tauler.dinsTauler(origen) || !tauler.dinsTauler(desti)) return false;
-    if (origen == desti) 
+    if (origen == desti)
         return false;
 
     Fitxa fitxaMovida = tauler.m_tauler[origen.getFila()][origen.getColumna()];
-    
+
     if (fitxaMovida.getTipus() == TIPUS_EMPTY) return false;
 
-    // Verificar si el movimiento es válido
+    // Verifiquem si el moviment (tenint en compte l'origen i el desti) és vàlid 
     Posicio movimentsValids[MAX_MOVIMENTS];
     int numMoviments = 0;
     tauler.getPosicionsPossibles(origen, numMoviments, movimentsValids);
 
     bool movimentValid = false;
-    for (int i = 0; i < numMoviments; ++i) 
+    for (int i = 0; i < numMoviments; ++i)
     {
-        if (movimentsValids[i] == desti) 
+        if (movimentsValids[i] == desti)
         {
             movimentValid = true;
             break;
@@ -62,10 +62,10 @@ bool Moviment::mouFitxa(Tauler& tauler, const Posicio& origen, const Posicio& de
     bool esCaptura = false;
     int numCaptures = 0;
 
-    if (abs(deltaFila) > 1 || abs(deltaCol) > 1) 
+    if (abs(deltaFila) > 1 || abs(deltaCol) > 1)
     {
         esCaptura = true;
-        if (fitxaMovida.getTipus() == TIPUS_NORMAL) 
+        if (fitxaMovida.getTipus() == TIPUS_NORMAL)
         {
             int fila = origen.getFila() + df;
             int col = origen.getColumna() + dc;
@@ -75,10 +75,10 @@ bool Moviment::mouFitxa(Tauler& tauler, const Posicio& origen, const Posicio& de
         else {
             int fila = origen.getFila() + df;
             int col = origen.getColumna() + dc;
-            while (fila != desti.getFila() || col != desti.getColumna()) 
+            while (fila != desti.getFila() || col != desti.getColumna())
             {
                 if (tauler.m_tauler[fila][col].getTipus() != TIPUS_EMPTY &&
-                    tauler.m_tauler[fila][col].getColor() != fitxaMovida.getColor()) 
+                    tauler.m_tauler[fila][col].getColor() != fitxaMovida.getColor())
                 {
                     tauler.m_tauler[fila][col] = Fitxa();
                     numCaptures++;
@@ -94,10 +94,10 @@ bool Moviment::mouFitxa(Tauler& tauler, const Posicio& origen, const Posicio& de
     tauler.m_tauler[origen.getFila()][origen.getColumna()] = Fitxa();
 
     // Comprobar coronación
-    if (fitxaMovida.getTipus() == TIPUS_NORMAL) 
+    if (fitxaMovida.getTipus() == TIPUS_NORMAL)
     {
         if ((fitxaMovida.getColor() == COLOR_BLANC && desti.getFila() == 0) ||
-            (fitxaMovida.getColor() == COLOR_NEGRE && desti.getFila() == N_FILES - 1)) 
+            (fitxaMovida.getColor() == COLOR_NEGRE && desti.getFila() == N_FILES - 1))
         {
             tauler.m_tauler[desti.getFila()][desti.getColumna()] =
                 Fitxa(fitxaMovida.getColor(), TIPUS_DAMA, fitxaMovida.getJugador());
@@ -119,7 +119,7 @@ bool Moviment::mouFitxa(Tauler& tauler, const Posicio& origen, const Posicio& de
         }
         if (numCaptures < maxCapturesPossibles) calBufar = true;
     }
-    else 
+    else
     {
         Posicio possibles[MAX_MOVIMENTS];
         int nPos = 0;
