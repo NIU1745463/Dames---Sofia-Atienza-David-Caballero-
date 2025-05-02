@@ -22,7 +22,7 @@ string Posicio::toString() const
 	return pos;
 }
 
-Posicio::Posicio(const string& posicio) 
+Posicio::Posicio(const string& posicio)
 {
 	fromString(posicio);
 }
@@ -50,9 +50,9 @@ void escriuFitxa(const string& nomFitxer, char tipusFitxa, const Posicio& posici
 	fitxer.close();
 }
 
-bool Posicio::operator==(const Posicio& posicio) const 
+bool Posicio::operator==(const Posicio& posicio) const
 {
-    return (m_fila == posicio.m_fila) && (m_columna == posicio.m_columna);
+	return (m_fila == posicio.m_fila) && (m_columna == posicio.m_columna);
 }
 
 ifstream& operator>>(ifstream& fitxer, Posicio& posicio) {
@@ -66,4 +66,3 @@ ostream& operator<<(ostream& os, const Posicio& pos) {
 	os << pos.toString();
 	return os;
 }
-
