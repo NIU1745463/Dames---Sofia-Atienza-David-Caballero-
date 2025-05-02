@@ -1,6 +1,6 @@
 #include "posicio.hpp"
 
-
+// Constructors 
 Posicio::Posicio()
 {
 	m_fila = 0;
@@ -13,6 +13,10 @@ Posicio::Posicio(int fila, int columna)
 	m_columna = columna;
 }
 
+Posicio::Posicio(const string& posicio)
+{
+	fromString(posicio);
+}
 
 string Posicio::toString() const
 {
@@ -20,11 +24,6 @@ string Posicio::toString() const
 	pos[0] = 'a' + m_columna;
 	pos[1] = '1' + (N_FILES - 1) - m_fila;
 	return pos;
-}
-
-Posicio::Posicio(const string& posicio)
-{
-	fromString(posicio);
 }
 
 void Posicio::fromString(const string& pos)

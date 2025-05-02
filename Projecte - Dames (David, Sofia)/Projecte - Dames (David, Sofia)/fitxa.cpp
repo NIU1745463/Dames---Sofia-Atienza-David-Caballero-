@@ -1,5 +1,7 @@
 #include "fitxa.h"
 
+// Constructors 
+
 Fitxa::Fitxa()
 {
 	m_colorFitxa = COLOR_BLANC;

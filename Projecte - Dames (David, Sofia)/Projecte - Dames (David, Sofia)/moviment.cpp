@@ -7,18 +7,23 @@ Moviment::Moviment()
     m_nCaselles = 0;
 }
 
-void Moviment::actualitzaMovimentsValids(Tauler& tauler) {
+void Moviment::actualitzaMovimentsValids(Tauler& tauler) 
+{
     tauler.m_numMoviments = 0;
-    for (int fila = 0; fila < N_FILES; ++fila) {
-        for (int col = 0; col < N_COLUMNES; ++col) {
+    for (int fila = 0; fila < N_FILES; ++fila) 
+    {
+        for (int col = 0; col < N_COLUMNES; ++col) 
+        {
             Posicio pos(fila, col); //representa la posicio actual
             Fitxa& fitxa = tauler.m_tauler[fila][col];
-            if (fitxa.getTipus() != TIPUS_EMPTY) { 
+            if (fitxa.getTipus() != TIPUS_EMPTY) 
+            { 
                 // si es troba una fitxa, es calculen les posicions possibles 
                 Posicio possibles[MAX_MOVIMENTS];
                 int nPos = 0;
                 tauler.getPosicionsPossibles(pos, nPos, possibles);
-                for (int i = 0; i < nPos && tauler.m_numMoviments < MAX_MOVIMENTS; ++i) {
+                for (int i = 0; i < nPos && tauler.m_numMoviments < MAX_MOVIMENTS; ++i) 
+                {
                     // sobre totes les posicions possibles, si el num de moviments vàlids es menor que el max, es registren al array
                     tauler.m_movimentsValids[tauler.m_numMoviments++] =
                         pos.toString() + "->" + possibles[i].toString();
@@ -31,11 +36,11 @@ void Moviment::actualitzaMovimentsValids(Tauler& tauler) {
 bool Moviment::mouFitxa(Tauler& tauler, const Posicio& origen, const Posicio& desti)
 {
     // es verifica si el moviment es valid (origen i destí)
-    if (!tauler.dinsTauler(origen) || !tauler.dinsTauler(desti)) 
+    if (tauler.dinsTauler(origen) == false || tauler.dinsTauler(desti) == false)
         return false;
-    if (origen == desti) 
+    if (origen == desti)
         return false;
-       
+
     Fitxa fitxaMovida = tauler.m_tauler[origen.getFila()][origen.getColumna()]; // obtenim la fitxa que volem moure
     if (fitxaMovida.getTipus() == TIPUS_EMPTY) return false;
 
@@ -59,12 +64,12 @@ bool Moviment::mouFitxa(Tauler& tauler, const Posicio& origen, const Posicio& de
     int dFila = desti.getFila() - origen.getFila();
     int dColumna = desti.getColumna() - origen.getColumna();
     int df;
-    if (dFila > 0) df = 1; 
-    else df = -1; 
+    if (dFila > 0) df = 1;
+    else df = -1;
 
     int dc;
-    if (dColumna > 0) dc = 1; 
-    else dc = -1; 
+    if (dColumna > 0) dc = 1;
+    else dc = -1;
 
     bool esCaptura = false;
     int numCaptures = 0;
@@ -142,6 +147,7 @@ bool Moviment::mouFitxa(Tauler& tauler, const Posicio& origen, const Posicio& de
     // en el cas de que calgui bufar, cridem al mètode corresponent
     if (calBufar)
         tauler.bufarFitxa(fitxaMovida.getColor());
-        tauler.actualitzaMovimentsValids();
+    tauler.actualitzaMovimentsValids();
     return true;
 }
+
